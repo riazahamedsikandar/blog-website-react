@@ -10,7 +10,7 @@ function CreatePost({ isAuth }) {
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
-  const createPost = async () => {
+  const createPost = async (auth) => {
     await addDoc(postsCollectionRef, {
       title,
       postText,
@@ -47,7 +47,7 @@ function CreatePost({ isAuth }) {
             }}
           />
         </div>
-        <button onClick={createPost}> Submit Post</button>
+        <button onClick={() => createPost(auth)}> Submit Post</button>
       </div>
     </div>
   );
